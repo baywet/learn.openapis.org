@@ -44,7 +44,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>{{ page.title | default: site.title | escape }}</title>
-<meta name="generator" content="Jekyll v3.10.0">
+<meta name="generator" content="Jekyll v{{ jekyll.version }}">
 <meta property="og:title" content="{{ page.title | default: site.title | escape }}" />
 <meta property="og:locale" content="en_US">
 <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 | default: site.description }}">
@@ -56,9 +56,24 @@
 <meta property="og:site_name" content="OpenAPI Documentation">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta property="twitter:title" content="Getting Started">
+<meta property="twitter:title" content="{{ page.title | default: site.title | escape }}" />
 <script
-	type="application/ld+json"> {"@context":"https://schema.org","@type":"WebSite","description":"For API designers and writers wishing formalize their API in an OpenAPI Description document.","headline":"Getting Started","name":"OpenAPI Documentation","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://learn.openapis.org/assets/images/OpenAPI_Logo_Pantone-1.png"}},"url":"https://learn.openapis.org/"}</script>
+	type="application/ld+json"> {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "description": "{{ site.description }}",
+  "headline": "{{ page.title | default: site.title }}",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "publisher": {
+    "@type": "Organization",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/images/OpenAPI_Logo_Pantone-1.png"
+    }
+  }
+}
+</script>
 <!-- End Jekyll SEO tag -->
 <base target="_top">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
